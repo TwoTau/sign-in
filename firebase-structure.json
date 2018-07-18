@@ -1,0 +1,124 @@
+{
+	"corrections" : {
+		"Pelican Steve" : {
+			"18-01-10 10:02" : "01/06/18: Make end time 2 pm",
+			"18-02-04 21:05" : "01/10/18: Forgot to sign out at 5 pm"
+		},
+		"Jonquil Von Haggerston" : {
+			"18-01-12 11:39" : "01/06/18: Add 1 hour to end",
+			"18-02-04 09:25" : "01/12/18: Add 1 hour before start"
+		}
+	},
+	"log" : {
+		"Pelican Steve" : {
+			"meetings" : {
+				"18-01-06" : {
+					"end0" : "13:00:00",
+					"start0" : "11:30:00"
+				},
+				"18-01-10" : {
+					"start0" : "10:00:00"
+				},
+				"18-02-04" : {
+					"end0" : "21:00:00",
+					"start0" : "19:50:30"
+				}
+			},
+			"subtract" : {
+	          "18-02-04" : "5:00"
+	        }
+		},
+		"Isaac Newton" : {
+			"meetings" : {
+				"18-01-06" : {
+					"end0" : "15:00:00",
+					"start0" : "10:30:00"
+				},
+				"18-01-10" : {
+					"end0" : "16:00:00",
+					"start0" : "07:00:00"
+				},
+				"18-02-02" : {
+					"end0" : "20:00:00",
+					"start0" : "12:13:14"
+				}
+			}
+		},
+		"Sue Shei" : {
+			"meetings" : {
+				"18-02-04" : {
+					"end0" : "19:40:00",
+					"start0" : "18:30:00"
+				}
+			}
+		},
+		"Jonquil Von Haggerston" : {
+			"meetings" : {
+				"18-01-06" : {
+					"end0" : "13:00:00",
+					"start0" : "10:30:00"
+				},
+				"18-01-12" : {
+					"end0" : "14:00:00",
+					"start0" : "10:40:00"
+				},
+				"18-02-04" : {
+					"end0" : "20:20:00",
+					"start0" : "17:00:00"
+				}
+			}
+		}
+	},
+	"members" : {
+		"Pelican Steve" : {
+			"board" : true,
+			"discordId" : "001122334455667788",
+			"present" : false
+		},
+		"Bartholomew Shoe" : {
+			"board" : true,
+			"discordId" : "001122334455667788",
+			"present" : false
+		},
+		"Eleanor Nelson" : {
+			"board" : true,
+			"discordId" : "001122334455667788",
+			"present" : false
+		},
+		"Isaac Newton" : {
+			"board" : true,
+			"discordId" : "001122334455667788",
+			"present" : false
+		},
+		"Jonquil Von Haggerston" : {
+			"board" : false,
+			"discordId" : "001122334455667788",
+			"present" : false
+		},
+		"Jane Doe" : {
+			"board" : true,
+			"discordId" : "001122334455667788",
+			"present" : false
+		},
+		"Erika Mustermann" : {
+			"board" : true,
+			"discordId" : "001122334455667788",
+			"present" : false
+		},
+		"Sir Cumfurence" : {
+			"board" : true,
+			"discordId" : "001122334455667788",
+			"present" : false
+		},
+		"Sue Shei" : {
+			"board" : true,
+			"discordId" : "001122334455667788",
+			"present" : false
+		},
+		"Gideon Guernsey-Marmaduke" : {
+			"board" : false,
+			"discordId" : "001122334455667788",
+			"present" : false
+		}
+	}
+}
