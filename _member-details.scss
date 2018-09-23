@@ -1,0 +1,134 @@
+@charset "UTF-8";
+
+$red: #d42;
+$yellow: #ed1;
+
+#attendance-container {
+    @include desktop {
+        overflow-y: auto;
+        max-height: 60vh;
+    }
+}
+
+#attendance {
+    border-collapse: collapse;
+    width: 100%;
+
+    text-align: right;
+
+    $border-color: $light-gray-color;
+    $hover-color: #252525;
+
+    tr :first-child {
+        text-align: center;
+    }
+
+    th {
+        background: $border-color;
+    }
+
+    td, th {
+        border: 1px solid $border-color;
+        padding: 2px 6px;
+    }
+
+    td {
+        &:first-child {
+            color: $highlight-lighter;
+        }
+        &:nth-child(2),
+        &:nth-child(3) {
+            color: #aaa;
+        }
+    }
+
+    tr:hover {
+        background: $hover-color;
+    }
+
+    tr.subtracted td {
+        color: $red;
+        text-align: center;
+
+        &:last-child {
+            text-align: right;
+        }
+    }
+
+    tr.not-logged-out {
+        td:nth-child(3) {
+            text-align: center;
+        }
+        td:nth-child(3),
+        td:last-child {
+            color: $red;
+        }
+
+        &.today td:nth-child(3),
+        &.today td:last-child {
+            color: $yellow;
+        }
+    }
+
+    td:nth-child(2),
+    td:nth-child(3) {
+        position: relative;
+
+        & span {
+            position: absolute;
+            top: 0px;
+            right: 0;
+            padding: 2px;
+            background: $hover-color;
+            opacity: 0;
+            font-size: 12px;
+            text-transform: uppercase;
+            transition: 0.2s;
+        }
+
+        &:hover span {
+            opacity: 1;
+        }
+
+    }
+
+}
+
+.flashy-done::after {
+    content: " ☺ ☺ ☺";
+    animation: flash 1s infinite alternate;
+}
+@keyframes flash {
+    0% {color: #fa0;}
+    100% {color: #0af;}
+}
+
+#change-button-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+    margin-top: 8px;
+
+    button {
+        flex: auto;
+        border: 2px solid $highlight-darker;
+        color: lighten($highlight-darker, 30);
+        background: transparentize($light-gray-color, 0.6);
+        padding: 4px;
+
+        font-size: 1em;
+
+        transition: 0.2s;
+
+        &:hover {
+            border-color: darken($highlight-darker, 20);
+            color: lighten($highlight-color, 40);
+            background-color: $highlight-darker;
+        }
+    }
+}
+
+#correction {
+    margin-right: 8px;
+}

@@ -1,0 +1,259 @@
+@charset "UTF-8";
+
+// Constants:
+$background-color: #171717;
+$highlight-color: #47d;
+$highlight-lighter: #44c4dd;
+$highlight-darker: #5d44dd;
+$light-gray-color: #2e2e2e;
+
+$name-box-background: #eee;
+$name-box-border-color: #aaa;
+
+$name-box-padding: 20px;
+$input-border-width: 12px;
+
+$desktop: "only screen and (min-width: 1220px)";
+@mixin desktop {
+	@media #{$desktop} {
+		@content;
+	}
+}
+
+@mixin no-select {
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    user-select: none;
+}
+
+* {
+	margin: 0;
+	padding: 0;
+}
+body {
+	margin: 0;
+	padding: 0;
+	width: 100%;
+	height: 100%;
+	background: $background-color;
+	text-align: center;
+	color: #eee;
+
+	font-family: "Open Sans", sans-serif;
+	font-size: 1.2em;
+}
+
+input, button {
+	outline: 0;
+	border: 0;
+	font-family: inherit;
+	font-size: inherit;
+}
+
+#container {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+
+	margin: 20px;
+
+    @include desktop {
+        $margin: 6vh;
+
+        margin: $margin;
+        max-height: (100vh - 2 * $margin);
+    }
+
+	@include desktop {
+		flex-direction: row;
+	}
+}
+
+
+@include desktop {
+	// blue line on the bottom of the screen
+	#progress {
+		position: absolute;
+		bottom: 0;
+		left: 0;
+		width: 100%;
+		height: 12px;
+		background: $highlight-color;
+		transition: 0.2s;
+	}
+}
+
+#container > div {
+	flex-basis: auto;
+}
+
+#main-container {
+
+	@include desktop {
+		width: 45%;
+	}
+
+	#name {
+		width: 100%;
+		box-sizing: border-box;
+		border: $input-border-width solid $name-box-border-color;
+		padding: $name-box-padding;
+		font-size: 40px;
+        background: $name-box-background;
+	}
+}
+
+.sidebar h2, #header, #modal h2 {
+	color: $highlight-color;
+	font-family: "Raleway", "Comic Sans MS";
+	font-size: 40px;
+	border-bottom: 2px solid $highlight-color;
+	padding-bottom: 10px;
+	margin-bottom: 10px;
+	text-align: center;
+	letter-spacing: 1.3px;
+    cursor: default;
+}
+
+.sidebar {
+	@include desktop {
+		width: 21%;
+	}
+
+	text-align: left;
+	color: #eee;
+}
+
+#main-container {
+	h1 {
+		border: 0;
+	}
+}
+
+button, .sidebar h2, #header {
+    @include no-select;
+}
+
+button {
+    cursor: pointer;
+}
+
+#meeting-details {
+	ul {
+		list-style: none;
+		li span {
+			cursor: pointer;
+            @include no-select;
+			&:hover {
+				color: $highlight-lighter;
+			}
+		}
+	}
+}
+
+#present-list-container {
+	overflow-y: auto;
+	max-height: 80vh;
+}
+
+#member-details {
+	visibility: hidden;
+}
+
+#button-container {
+    display: none;
+    margin-top: 60px;
+}
+
+.sign-button {
+	transition: 0.2s ease-out;
+
+    padding: 24px 0;
+    width: 200px;
+    font-size: 28px;
+
+    border: $input-border-width solid #eee;
+
+	&.disabled {
+		opacity: 0.08;
+		cursor: not-allowed;
+	}
+	&:not(.disabled):hover {
+
+	}
+}
+
+$sign-in-base-color: #2c6;
+$sign-out-base-color: #c22;
+$border-darken: 14;
+
+#sign-in {
+    float: left;
+    background: $sign-in-base-color;
+    border-color: darken($sign-in-base-color, $border-darken);
+}
+#sign-out {
+    float: right;
+    background: $sign-out-base-color;
+    border-color: darken($sign-out-base-color, $border-darken);
+}
+
+.autocomplete-suggestions {
+	background: $name-box-background;
+	width: 100%;
+	max-height: 50vh;
+	text-align: left;
+	position: absolute;
+	display: none;
+	z-index: 9999;
+	overflow: hidden;
+	overflow-y: auto;
+	box-sizing: border-box;
+    border: $input-border-width solid $name-box-border-color;
+    border-top: 0;
+
+    &::-webkit-scrollbar {
+        width: $input-border-width;
+        &-thumb {
+            border-radius: 0;
+        }
+    }
+}
+.autocomplete-suggestion {
+	position: relative;
+	text-overflow: ellipsis;
+	color: #111;
+
+    font-size: 24px;
+
+    cursor: pointer;
+
+	padding: 12px 0 12px $name-box-padding;
+	white-space: nowrap;
+	overflow: hidden;
+
+	& b {
+		font-weight: normal;
+		text-decoration: underline;
+		color: red;
+	}
+
+	&.selected {
+		background: $highlight-lighter;
+	}
+}
+
+::-webkit-scrollbar {
+	width: 8px;
+	background: transparent;
+	&-thumb {
+		background-color: #555;
+		border-radius: 4px;
+		&:hover {
+			background-color: #999;
+		}
+	}
+}
+
+@import "member-details";
+@import "correction-modal";
