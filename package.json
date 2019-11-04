@@ -1,0 +1,32 @@
+{
+  "name": "signin",
+  "version": "1.0.0",
+  "description": "A realtime online sign-in system",
+  "main": "main.js",
+  "scripts": {
+    "gulp": "gulp watch",
+    "pretest": "eslint --ignore-path .gitignore .",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TwoTau/sign-in.git"
+  },
+  "author": "Vishal Devireddy (TwoTau)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/TwoTau/sign-in/issues"
+  },
+  "homepage": "https://github.com/TwoTau/sign-in#readme",
+  "devDependencies": {
+    "browserify": "^16.3.0",
+    "gulp": "^4.0.2",
+    "gulp-cache": "^1.1.2",
+    "gulp-htmlmin": "^5.0.1",
+    "gulp-sass": "^4.0.2",
+    "gulp-sourcemaps": "^2.6.5",
+    "gulp-terser": "^1.2.0",
+    "vinyl-buffer": "^1.0.1",
+    "vinyl-source-stream": "^2.0.0"
+  }
+}
